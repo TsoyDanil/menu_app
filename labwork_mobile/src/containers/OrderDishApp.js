@@ -33,8 +33,9 @@ const OrderDishApp = () => {
     }
 
     const postOrderHandler = async () => {
-        await dispatch(postOrder(currentCart))
-        setShowModal(false)
+        const mappedArray = Object.keys(currentCart).filter(key => currentCart[key] > 0).map((key) => ({[key]: currentCart[key]}))
+        let dataObject = Object.assign({}, ...mappedArray)
+        dispatch(postOrder(dataObject))
     }
 
     const modalExtraChecker = () => {
