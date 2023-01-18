@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import DishBlock from '../../components/DishBlock/DishBlock'
-import { getMenu, changeDishData } from "../../store/Menu/menu.slice";
-
+import { getMenu, deleteDishFromMenu } from "../../store/Menu/menu.slice";
 import { AppState, useAppDispatch } from '../../store/store'
 import './MenuPage.css'
 
@@ -18,6 +17,15 @@ const MenuPage: React.FunctionComponent = (): React.ReactElement => {
 
     const gotToAddForm = () => {
         navigate({pathname:'add-form'})
+    }
+
+    const editDish = (key: string) => {
+        navigate({pathname: key + '/edit'})
+    }
+
+    const deleteDishHandler = async (id: string) => {
+        await dispatch(deleteDishFromMenu(id))
+        dispatch(getMenu())
     }
     
     useEffect(()=>{
@@ -42,8 +50,8 @@ const MenuPage: React.FunctionComponent = (): React.ReactElement => {
                                 <DishBlock
                                     key={key}
                                     dish={dishes[key]}
-                                    deleteDish={()=>{}}
-                                    editDish={()=>{}}
+                                    deleteDish={()=>{deleteDishHandler(key)}}
+                                    editDish={()=>{editDish(key)}}
                                 />
                             )
                         })

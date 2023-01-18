@@ -73,7 +73,7 @@ const AddDishForm: React.FunctionComponent = (): React.ReactElement => {
                         <button
                         disabled={buttonDisabled}
                         className="AddForm__button"
-                    >Save</button>                       
+                    >Add</button>                       
                     </form>
                 </>
             }

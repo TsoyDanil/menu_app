@@ -9,7 +9,7 @@ const Header: React.FunctionComponent = (): React.ReactElement => {
             <p>Pizza</p>
             <div className='Header_Links'>
                 <NavLink to={'/'}>Dishes</NavLink>
-                <NavLink to={'/orders'}>Order</NavLink>
+                <NavLink to={'/orders'}>Orders</NavLink>
             </div>
         </div>
         <main>
