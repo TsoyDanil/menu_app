@@ -1,0 +1,1 @@
+export const apiUrl: string = 'https://probable-quest-317914-default-rtdb.firebaseio.com/'
