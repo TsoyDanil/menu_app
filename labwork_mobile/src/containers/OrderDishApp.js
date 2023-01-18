@@ -37,9 +37,17 @@ const OrderDishApp = () => {
         setShowModal(false)
     }
 
+    const modalExtraChecker = () => {
+        if (Object.keys(currentCart).length > 0 && Object.keys(currentCart).filter(key => currentCart[key] > 0).length > 0) return
+        setShowModal(false)
+    }
     useEffect(() => {
         dispatch(getMenu())
     }, [])
+
+    useEffect(() => {
+        modalExtraChecker()
+    }, [currentCart])
 
     return(
         <>  
@@ -71,7 +79,7 @@ const OrderDishApp = () => {
                 : <Text style={OrderDishAppStyles.headerText}>No dishes yet...</Text>
             }
             {
-                Object.keys(currentCart).length > 0 ? 
+                Object.keys(currentCart).length > 0 && Object.keys(currentCart).filter(key => currentCart[key] > 0).length > 0 ? 
                 <View style={OrderDishAppStyles.gotToCartBlock}>
                     <Text>Total price: {Object.keys(currentCart).map((key) => dishes[key].cost * currentCart[key]).reduce((a, b) => a + b)}</Text>
                     <Pressable
@@ -96,11 +104,11 @@ const OrderDishApp = () => {
                                         key={key}
                                         >
                                         <Text>{dishes[key].name} X {currentCart[key]} <Text style={OrderDishAppStyles.boldText}>{dishes[key].cost * currentCart[key]} KZT</Text></Text>
-                                            {/* <Pressable 
+                                            <Pressable 
                                                 onPress={()=>removeFromCartHandler(key)}
                                                 style={OrderDishAppStyles.preesable}>
                                                 <Text style={OrderDishAppStyles.removeFromCart}>Remove</Text>
-                                            </Pressable> */}
+                                            </Pressable>
                                         </View>
                                         }
                                             })
