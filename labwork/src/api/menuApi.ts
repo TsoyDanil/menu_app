@@ -7,7 +7,7 @@ class MenuApi {
     public getMenu = async(): Promise<IDishResponse | void> => {
         try{
             const response:AxiosResponse<IDishResponse>  = await menuInstance.get('.json')
-            return response.data
+            return response?.data
         } catch(error: unknown){
             console.log(error)
         }

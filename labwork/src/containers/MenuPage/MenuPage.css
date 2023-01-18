@@ -1,0 +1,14 @@
+.MenuPage{
+    max-width: 1400px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.MenuPage_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}

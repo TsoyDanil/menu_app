@@ -1,12 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import { useDispatch } from "react-redux"
+import { menuSlice } from "./Menu/menu.slice"
 
 
 
 const makeStore = () => {
     return configureStore({
         reducer:{
-            
+            menu: menuSlice.reducer
         },
         devTools: true
     })
