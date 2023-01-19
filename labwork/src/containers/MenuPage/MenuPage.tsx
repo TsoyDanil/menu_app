@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import DishBlock from '../../components/DishBlock/DishBlock'
 import { getMenu, deleteDishFromMenu } from "../../store/Menu/menu.slice";
@@ -13,7 +13,7 @@ const MenuPage: React.FunctionComponent = (): React.ReactElement => {
 
     const navigate = useNavigate()
 
-    const {dishes, loading} = useSelector((state: AppState) => state.menu)
+    const {dishes, loading} = useSelector((state: AppState) => state.menu, shallowEqual)
 
     const gotToAddForm = () => {
         navigate({pathname:'add-form'})

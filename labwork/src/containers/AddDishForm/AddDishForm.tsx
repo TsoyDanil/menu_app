@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { useSelector } from "react-redux";
+import { shallowEqual, useSelector } from "react-redux";
 import IDish from "../../interfaces/IDish";
 import { postNewDish } from '../../store/Menu/menu.slice';
 import { AppState, useAppDispatch } from "../../store/store";
@@ -9,7 +9,7 @@ const AddDishForm: React.FunctionComponent = (): React.ReactElement => {
 
     const dispatch = useAppDispatch()
 
-    const {loading} = useSelector((state: AppState) => state.menu)
+    const {loading} = useSelector((state: AppState) => state.menu, shallowEqual)
 
     const [dish, setDish] = useState<IDish>(
         {

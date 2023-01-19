@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import IDish from "../../interfaces/IDish";
 import IMenuCombinedData from '../../interfaces/IMenuCombinedData';
@@ -11,7 +11,7 @@ const EditDishForm: React.FunctionComponent = (): React.ReactElement => {
 
     const dispatch = useAppDispatch()
 
-    const {loading, dishes} = useSelector((state: AppState) => state.menu)
+    const {loading, dishes} = useSelector((state: AppState) => state.menu, shallowEqual)
 
     const [buttonDisabled, setButtonDisabled] = useState<boolean>(true)
 
