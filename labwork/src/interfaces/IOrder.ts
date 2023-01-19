@@ -1,5 +1,6 @@
 
 
 export default interface IOrder{
-    [key: string]: number
+    name: string,
+    amount: number
 }
