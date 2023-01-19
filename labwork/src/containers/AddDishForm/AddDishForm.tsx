@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { shallowEqual, useSelector } from "react-redux";
+import { Loader } from '../../components/UI/Loader/Loader';
 import IDish from "../../interfaces/IDish";
 import { postNewDish } from '../../store/Menu/menu.slice';
 import { AppState, useAppDispatch } from "../../store/store";
@@ -55,7 +56,7 @@ const AddDishForm: React.FunctionComponent = (): React.ReactElement => {
         <div className="AddDishForm">
             {
                 loading ? 
-                <h1>Loading...</h1> :
+                <Loader/> :
                 <>
                     <form onSubmit={(event) =>{submitDish(event)}}>
                         <div className='AddDishForm_inner_block'>

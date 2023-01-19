@@ -2,6 +2,8 @@
     margin: 10px;
     padding: 10px;
     border: 2px solid black;
+    background: grey;
+    border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,4 +16,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.NavigLink_styles{
+    display: flex;
+    list-style-type: none;
+    min-width: 90px;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
 }

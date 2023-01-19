@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
+import { Loader } from '../../components/UI/Loader/Loader';
 import IDish from "../../interfaces/IDish";
 import IMenuCombinedData from '../../interfaces/IMenuCombinedData';
 import { changeDishData } from '../../store/Menu/menu.slice';
@@ -63,7 +64,7 @@ const EditDishForm: React.FunctionComponent = (): React.ReactElement => {
         <div className='EditDishForm'>
             {
                 loading ? 
-                <h1>Loading...</h1> :
+                <Loader/> :
                 <>
                     <form onSubmit={(event) =>{submitDish(event)}}>
                         <div className='EditDishForm_inner_block'>

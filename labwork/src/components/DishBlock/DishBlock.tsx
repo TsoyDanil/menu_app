@@ -12,8 +12,10 @@ const DishBlock: React.FunctionComponent<IDishBlockProps> = (props): React.React
                 <p>{props.dish.name}: {props.dish.cost} KZT</p>
             </div>
             <div className='DishBlock__inner'>
-                <button onClick={props.editDish}>Edit</button>
-                <button onClick={props.deleteDish}>Delete</button>
+                <div className='DishBlock__button__container'>
+                    <button className='EditBtn' onClick={props.editDish}></button>
+                    <button className='DeleteBtn' onClick={props.deleteDish}></button>
+                </div>
             </div>
         </div>
     )

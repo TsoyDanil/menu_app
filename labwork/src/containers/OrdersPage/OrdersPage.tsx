@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../../components/UI/Loader/Loader";
 import { getOrders, completeOrder } from "../../store/Order/order.slice";
 import { AppState, useAppDispatch } from "../../store/store";
 import './OrdersPage.css'
@@ -8,8 +9,6 @@ import './OrdersPage.css'
 const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
 
     const dispatch = useAppDispatch()
-
-    const navigate = useNavigate()
 
     const {dishes} = useSelector((state: AppState) => state.menu)
 
@@ -26,17 +25,18 @@ const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
 
     return(
         <div className="OrdersPage">
-            <h1>Orders:</h1>
+            <h1 className="OrdersPage__title">Orders:</h1>
             {
                 loading ? 
-                <h1>Loading...</h1> : 
+                <Loader/> : 
                 <>
                     {
-                    Object.keys(orders).length ? 
+                    Object.keys(orders).length > 0 ? 
                     <div className="Orders_container">   
                         {
                             Object.keys(orders).map((key: string) => {
-                                let dishArrayHandler = []
+                                try{
+                                    let dishArrayHandler = []
                                 for (let dish in orders[key]){
                                     dishArrayHandler.push({
                                         name: dishes[orders[key][dish].name],
@@ -59,8 +59,12 @@ const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
                                             </>
                                             <p>Delivery cost: 150</p>
                                             <p>Total: {totalPrice + 150}</p>
-                                            <button onClick={()=>completeOrderHandler(key)}>Complete order</button>
+                                            <button className="CompleteBtn" onClick={()=>completeOrderHandler(key)}></button>
                                         </div>
+                                } catch(eror){
+                                    console.log(eror)
+                                    return <div></div>
+                                }
                             })
                         }
                     </div>

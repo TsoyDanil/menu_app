@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import DishBlock from '../../components/DishBlock/DishBlock'
+import { Loader } from "../../components/UI/Loader/Loader";
 import { getMenu, deleteDishFromMenu } from "../../store/Menu/menu.slice";
 import { AppState, useAppDispatch } from '../../store/store'
 import './MenuPage.css'
@@ -35,16 +36,16 @@ const MenuPage: React.FunctionComponent = (): React.ReactElement => {
     return(
         <div className='MenuPage'>
             <div className='MenuPage_title'>
-                <p>Dishes</p>
-                <button onClick={gotToAddForm}>Add new Dish</button>
+                <h2>Dishes</h2>
+                <button className="Add_new_dish_btn" onClick={gotToAddForm}></button>
             </div>
             {
                 loading ? 
-                <h1>Loading...</h1>
+                <Loader/>
                 :
                 <>
                     {
-                        Object.keys(dishes).length ? 
+                        Object.keys(dishes).length > 0 ? 
                         Object.keys(dishes).map((key: string) => {
                             return (
                                 <DishBlock

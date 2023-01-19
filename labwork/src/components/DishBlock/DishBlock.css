@@ -1,22 +1,53 @@
 .DishBlock{
-    margin: 10px;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #6d6c6c;
     width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
     border: 2px solid black;
+    margin: 5px 15px;
+    border: 1px solid;
+    padding: 0 0 0 15px;
+    border-radius: 10px;
+    color: black;
 }
 
 .DishBlock_image{
     width: 100px;
     height: 100px;
-    padding: 10px;
     margin: 10px;
     border: 2px solid black;
+    border-radius: 10px;
 }
 
 .DishBlock__inner{
     display: flex;
     align-items: center;
+    margin: 10px;
 }
+
+.DishBlock__inner button{
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
+.DishBlock__inner button:hover{
+    transform: scale(1.2);
+    transition: 0.1s;
+}
+
+.EditBtn{
+    background: url('../../assets/edit.png');
+    margin-right: 10px;
+}
+
+.DeleteBtn{
+    background: url('../../assets/delete.png');
+}
+
