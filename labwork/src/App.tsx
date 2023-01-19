@@ -9,11 +9,13 @@ import EditDishForm from './containers/EditDishForm/EditDishForm';
 import OrdersPage from './containers/OrdersPage/OrdersPage';
 import { useAppDispatch } from './store/store';
 import { getMenu } from './store/Menu/menu.slice';
+import { getOrders } from './store/Order/order.slice';
 
 const App: React.FunctionComponent = (): React.ReactElement => {
   const dispatch = useAppDispatch()
   useEffect(()=>{
     dispatch(getMenu())
+    dispatch(getOrders())
   },[])
   return (
     <div className="App">

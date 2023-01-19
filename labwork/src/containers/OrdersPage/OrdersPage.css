@@ -8,9 +8,9 @@
 }
 
 .Orders_container{
-    /* display: flex;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    flex-wrap: wrap; */
 }
 
 .OrderTab{
@@ -25,4 +25,8 @@
 
 .OrderTab button{
     margin-top: 10px;
+}
+
+.OrderTab_bold{
+    font-weight: bold;
 }
