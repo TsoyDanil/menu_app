@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import React from "react";
+import { shallowEqual, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import DishBlock from '../../components/DishBlock/DishBlock'
 import { Loader } from "../../components/UI/Loader/Loader";

@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { shallowEqual, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { Loader } from "../../components/UI/Loader/Loader";
 import { getOrders, completeOrder } from "../../store/Order/order.slice";
 import { AppState, useAppDispatch } from "../../store/store";
@@ -57,8 +56,8 @@ const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
                                             <p>Total: {totalPrice + 150}</p>
                                             <button className="CompleteBtn" onClick={()=>completeOrderHandler(key)}></button>
                                         </div>
-                                } catch(eror){
-                                    console.log(eror)
+                                } catch(error: unknown){
+                                    console.log(error)
                                     return null
                                 }
                             })

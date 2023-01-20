@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Loader } from '../../components/UI/Loader/Loader';
 import IDish from "../../interfaces/IDish";
