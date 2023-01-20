@@ -37,6 +37,13 @@
     cursor: pointer;
 }
 
+.DishBlock__button__container{
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .DishBlock__inner button:hover{
     transform: scale(1.2);
     transition: 0.1s;
@@ -44,7 +51,6 @@
 
 .EditBtn{
     background: url('../../assets/edit.png');
-    margin-right: 10px;
 }
 
 .DeleteBtn{

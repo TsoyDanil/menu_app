@@ -11,7 +11,7 @@ const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
 
     const {dishes} = useSelector((state: AppState) => state.menu)
 
-    const {loading, orders} = useSelector((state: AppState) => state.orders, shallowEqual)
+    const {loading, orders, deliveryCoast} = useSelector((state: AppState) => state.orders, shallowEqual)
 
     const completeOrderHandler = async (key: string) => {
         await dispatch(completeOrder(key))
@@ -52,8 +52,8 @@ const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
                                                     })
                                                 }
                                             </>
-                                            <p>Delivery cost: 150</p>
-                                            <p>Total: {totalPrice + 150}</p>
+                                            <p>Delivery cost: {deliveryCoast}</p>
+                                            <p>Total: {totalPrice + deliveryCoast}</p>
                                             <button className="CompleteBtn" onClick={()=>completeOrderHandler(key)}></button>
                                         </div>
                                 } catch(error: unknown){

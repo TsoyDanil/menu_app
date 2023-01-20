@@ -2,5 +2,6 @@ import IOrderResponse from "../../interfaces/IOrderResponse";
 
 export default interface IOrderState{
     orders: IOrderResponse,
-    loading: boolean
+    loading: boolean,
+    deliveryCoast: number
 }

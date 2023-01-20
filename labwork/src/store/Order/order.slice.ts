@@ -24,7 +24,8 @@ export const ordersSlice = createSlice({
     name: namespace,
     initialState: {
         orders: {} as IOrderResponse,
-        loading: false
+        loading: false,
+        deliveryCoast: 150
     } as IOrderState,
     reducers: {},
     extraReducers: builder => {
