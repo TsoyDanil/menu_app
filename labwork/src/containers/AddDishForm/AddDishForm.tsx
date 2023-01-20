@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { shallowEqual, useSelector } from "react-redux";
 import { Loader } from '../../components/UI/Loader/Loader';
 import IDish from "../../interfaces/IDish";
-import { postNewDish } from '../../store/Menu/menu.slice';
+import { getMenu, postNewDish } from '../../store/Menu/menu.slice';
 import { AppState, useAppDispatch } from "../../store/store";
 import './AddDishForm.css'
 
@@ -38,14 +38,15 @@ const AddDishForm: React.FunctionComponent = (): React.ReactElement => {
         })
     }
 
-    const submitDish = (event: FormEvent<HTMLFormElement>) => {
+    const submitDish = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        dispatch(postNewDish(dish))
+        await dispatch(postNewDish(dish))
         setDish({
             name: '',
             cost: 0,
             imageSrc: ''
         })
+        await dispatch(getMenu())
     }
 
     useEffect(() => {

@@ -29,10 +29,6 @@ const MenuPage: React.FunctionComponent = (): React.ReactElement => {
         dispatch(getMenu())
     }
     
-    useEffect(()=>{
-        dispatch(getMenu())
-    },[])
-
     return(
         <div className='MenuPage'>
             <div className='MenuPage_title'>

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Loader } from '../../components/UI/Loader/Loader';
 import IDish from "../../interfaces/IDish";
 import IMenuCombinedData from '../../interfaces/IMenuCombinedData';
-import { changeDishData } from '../../store/Menu/menu.slice';
+import { changeDishData, getMenu } from '../../store/Menu/menu.slice';
 import { AppState, useAppDispatch } from "../../store/store";
 import './EditDishForm.css'
 
@@ -33,13 +33,14 @@ const EditDishForm: React.FunctionComponent = (): React.ReactElement => {
         })
     }
 
-    const submitDish = (event: FormEvent<HTMLFormElement>) => {
+    const submitDish = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const dataObject: IMenuCombinedData = {
             id: params.key,
             dishData: dish
         }
-        dispatch(changeDishData(dataObject))
+        await dispatch(changeDishData(dataObject))
+        await dispatch(getMenu())
     }
 
     const checkButton = (): void => {

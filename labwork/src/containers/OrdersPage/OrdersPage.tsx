@@ -19,10 +19,6 @@ const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
         dispatch(getOrders())
     }
 
-    useEffect(() => {
-        dispatch(getOrders())
-    }, [])
-
     return(
         <div className="OrdersPage">
             <h1 className="OrdersPage__title">Orders:</h1>
@@ -52,7 +48,7 @@ const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
                                                 {
                                                     dishArrayHandler.map((dishData, i) => {
                                                         return <div key={i}>
-                                                                    <p>{dishData.amount} X <span>{dishData.name.name}</span> <span className="OrderTab_bold">{dishData.price}</span>KZT</p>
+                                                                    <p>{dishData.amount + ' ' + 'X' + ' ' + dishData.name.name} <span className="OrderTab_bold">{dishData.price}</span>KZT</p>
                                                                 </div>
                                                     })
                                                 }
@@ -63,7 +59,7 @@ const OrdersPage: React.FunctionComponent = (): React.ReactElement => {
                                         </div>
                                 } catch(eror){
                                     console.log(eror)
-                                    return <div></div>
+                                    return null
                                 }
                             })
                         }
