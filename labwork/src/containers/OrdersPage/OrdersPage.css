@@ -9,6 +9,10 @@
     background: wheat;
 }
 
+.OrdersPage p {
+    margin: 5px 0;
+}
+
 .Orders_container{
     display: flex;
     flex-wrap: wrap;

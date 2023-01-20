@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { shallowEqual, useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 import { Loader } from '../../components/UI/Loader/Loader';
 import IDish from "../../interfaces/IDish";
 import { getMenu, postNewDish } from '../../store/Menu/menu.slice';
@@ -9,6 +10,8 @@ import './AddDishForm.css'
 const AddDishForm: React.FunctionComponent = (): React.ReactElement => {
 
     const dispatch = useAppDispatch()
+
+    const navigate = useNavigate()
 
     const {loading} = useSelector((state: AppState) => state.menu, shallowEqual)
 
@@ -73,10 +76,14 @@ const AddDishForm: React.FunctionComponent = (): React.ReactElement => {
                             <input type={'text'} name={'imageSrc'} onChange={(event)=>{inputHandler(event)}}/>
                         </div>
                         <button
-                        disabled={buttonDisabled}
-                        className="AddForm__button"
-                    >Add</button>                       
-                    </form>
+                            disabled={buttonDisabled}
+                            className="AddForm__button"
+                        >Add</button>                       
+                        </form>
+                        <button
+                            onClick={() => navigate(-1)}
+                            className="AddForm__button"
+                        >Cancel</button>
                 </>
             }
         </div>

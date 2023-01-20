@@ -14,15 +14,44 @@
     max-width: 200px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: flex-end;
 }
 
-.NavigLink_styles{
+/* .NavigLink_styles{
     display: flex;
     list-style-type: none;
     min-width: 90px;
     background: transparent;
     align-items: center;
     justify-content: center;
+} */
+
+.NavigLink_styles{
+    margin-left: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.NavigLink_styles a {
+    color: white;
+    height: 100%;
+    padding: 10px;
+    border-bottom: 4px solid transparent;
+
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.NavigLink_styles a:hover,
+.NavigLink_styles a:active,
+.NavigLink_styles a.active {
+    background-color: rgb(84, 83, 83);
+    border-bottom: 4px solid black;
+    border-radius: 3px;
+    color: white;
 }

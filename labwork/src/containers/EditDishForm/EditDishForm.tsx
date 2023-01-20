@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { shallowEqual, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Loader } from '../../components/UI/Loader/Loader';
 import IDish from "../../interfaces/IDish";
 import IMenuCombinedData from '../../interfaces/IMenuCombinedData';
@@ -11,6 +11,8 @@ import './EditDishForm.css'
 const EditDishForm: React.FunctionComponent = (): React.ReactElement => {
 
     const dispatch = useAppDispatch()
+
+    const navigate = useNavigate()
 
     const {loading, dishes} = useSelector((state: AppState) => state.menu, shallowEqual)
 
@@ -84,7 +86,11 @@ const EditDishForm: React.FunctionComponent = (): React.ReactElement => {
                         disabled={buttonDisabled}
                         className="EditForm__button"
                     >Save changes</button>                       
-                    </form>                    
+                    </form>      
+                    <button
+                            onClick={() => navigate(-1)}
+                            className="AddForm__button"
+                    >Cancel</button>              
                 </>
             }
         </div>
