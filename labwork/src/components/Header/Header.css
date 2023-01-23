@@ -18,15 +18,6 @@
     justify-content: flex-end;
 }
 
-/* .NavigLink_styles{
-    display: flex;
-    list-style-type: none;
-    min-width: 90px;
-    background: transparent;
-    align-items: center;
-    justify-content: center;
-} */
-
 .NavigLink_styles{
     margin-left: 10px;
     height: 100%;
